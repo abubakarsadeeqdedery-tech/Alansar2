@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply Online | AL'ANSAR ACADEMY DEDERI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo" style="text-decoration:none;color:inherit;">
+                <div class="logo-icon"><i class="fas fa-graduation-cap"></i></div>
+                <div class="logo-text"><h1>AL'ANSAR ACADEMY DEDERI</h1><span>Quality Education Since 2021</span></div>
+            </a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="academics.html">Academics</a></li>
+                    <li><a href="staff.html">Staff</a></li>
+                    <li><a href="forms.html">Forms</a></li>
+                    <li><a href="apply.html" class="active">Apply</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-banner"><div class="container"><h2>Apply Online</h2><p>Your application goes straight to the school office</p></div></div>
+
+    <section class="section">
+        <div class="container">
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="student">Student Admission</button>
+                <button class="tab-btn" data-tab="teacher">Teacher Application</button>
+            </div>
+
+            <div class="card-box" id="tab-student">
+                <form id="studentForm" data-url="/api/apply/student">
+                    <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off">
+                    <h3 class="fh">Student Information</h3>
+                    <div class="fgrid">
+                        <div class="full"><label>Full Name *</label><input name="full_name" required maxlength="100"></div>
+                        <div><label>Date of Birth</label><input type="date" name="date_of_birth"></div>
+                        <div><label>Gender</label><select name="gender"><option value="">Select</option><option>Male</option><option>Female</option></select></div>
+                        <div><label>Class Applied For *</label>
+                            <select name="class_name" required><option value="">Select</option><option>Pre-nursery</option><option>Nursery 1</option><option>Nursery 2</option><option>Basic 1</option><option>Basic 2</option></select></div>
+                        <div><label>Previous School (if any)</label><input name="previous_school"></div>
+                    </div>
+                    <h3 class="fh">Parent / Guardian</h3>
+                    <div class="fgrid">
+                        <div><label>Father's Name</label><input name="father_name"></div>
+                        <div><label>Mother's Name</label><input name="mother_name"></div>
+                        <div><label>Phone Number *</label><input type="tel" name="guardian_phone" required></div>
+                        <div><label>Email</label><input type="email" name="guardian_email"></div>
+                        <div class="full"><label>Home Address</label><input name="home_address"></div>
+                    </div>
+                    <h3 class="fh">Emergency Contact (other than parents)</h3>
+                    <div class="fgrid">
+                        <div><label>Name</label><input name="emergency_name"></div>
+                        <div><label>Relationship</label><input name="emergency_relationship"></div>
+                        <div><label>Phone</label><input type="tel" name="emergency_phone"></div>
+                    </div>
+                    <h3 class="fh">Medical Information</h3>
+                    <div class="fgrid">
+                        <div class="full"><label>Known allergies or medical conditions</label><input name="allergies"></div>
+                        <div class="full"><label>Medications regularly taken</label><input name="medications"></div>
+                        <div><label>Doctor's Name</label><input name="doctor_name"></div>
+                        <div><label>Doctor's Phone</label><input type="tel" name="doctor_phone"></div>
+                    </div>
+                    <p style="margin-top:20px;font-size:.9rem;">By submitting, I declare that the information is true and I agree to abide by the school's rules.</p>
+                    <button class="form-btn" type="submit">Submit Application</button>
+                    <div class="msg"></div>
+                </form>
+            </div>
+
+            <div class="card-box" id="tab-teacher" style="display:none;">
+                <form id="teacherForm" data-url="/api/apply/teacher">
+                    <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off">
+                    <h3 class="fh">Personal Information</h3>
+                    <div class="fgrid">
+                        <div class="full"><label>Full Name *</label><input name="full_name" required maxlength="100"></div>
+                        <div><label>Date of Birth</label><input type="date" name="date_of_birth"></div>
+                        <div><label>Phone Number *</label><input type="tel" name="phone" required></div>
+                        <div><label>Email</label><input type="email" name="email"></div>
+                        <div class="full"><label>Home Address</label><input name="address"></div>
+                    </div>
+                    <h3 class="fh">Qualification & Experience</h3>
+                    <div class="fgrid">
+                        <div class="full"><label>Highest Qualification (institution, certificate, year)</label><input name="qualification"></div>
+                        <div class="full"><label>Subject(s) you can teach</label><input name="subjects"></div>
+                        <div><label>Preferred class(es)</label><input name="preferred_classes"></div>
+                        <div><label>Years of experience</label><input name="experience_years"></div>
+                        <div class="full"><label>Previous school(s)</label><input name="previous_schools"></div>
+                    </div>
+                    <h3 class="fh">Referees</h3>
+                    <div class="fgrid">
+                        <div><label>Referee 1 - Name</label><input name="ref1_name"></div>
+                        <div><label>Referee 1 - Phone</label><input type="tel" name="ref1_phone"></div>
+                        <div><label>Referee 2 - Name</label><input name="ref2_name"></div>
+                        <div><label>Referee 2 - Phone</label><input type="tel" name="ref2_phone"></div>
+                    </div>
+                    <p style="margin-top:20px;font-size:.9rem;">By submitting, I declare that the information is true and accurate.</p>
+                    <button class="form-btn" type="submit">Submit Application</button>
+                    <div class="msg"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer><div class="container"><div class="copyright"><p>&copy; AL'ANSAR ACADEMY DEDERI. All Rights Reserved. | <a href="admin.html" style="color:#aaa;">Staff Login</a></p></div></div></footer>
+    <script src="js/apply.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

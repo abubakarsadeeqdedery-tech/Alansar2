@@ -1,0 +1,9 @@
+{
+  "name": "alansar-academy",
+  "version": "1.1.0",
+  "description": "Al'Ansar Academy Dederi website with SQLite student, staff, admissions and examination management",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  }
+}

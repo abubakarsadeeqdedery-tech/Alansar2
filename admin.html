@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>Admin | AL'ANSAR ACADEMY DEDERI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo" style="text-decoration:none;color:inherit;">
+                <div class="logo-icon"><i class="fas fa-graduation-cap"></i></div>
+                <div class="logo-text"><h1>SCHOOL OFFICE</h1><span>AL'ANSAR ACADEMY DEDERI</span></div>
+            </a>
+            <button class="small-btn" id="logoutBtn" style="display:none;">Log out</button>
+        </div>
+    </header>
+
+    <section class="section" id="loginView">
+        <div class="container">
+            <div class="card-box" style="max-width:400px;">
+                <h3 style="margin-bottom:15px;">Staff Login</h3>
+                <form id="loginForm" class="field">
+                    <label>Username</label><input name="username" autocomplete="username" required>
+                    <label style="margin-top:12px;">Password</label><input type="password" name="password" autocomplete="current-password" required>
+                    <button class="form-btn" type="submit">Log in</button>
+                    <div class="msg" id="loginMsg"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="dashView" style="display:none;padding:40px 0;">
+        <div class="container">
+            <div class="stats">
+                <div class="stat"><b id="stStudents">0</b>Active students</div>
+                <div class="stat"><b id="stStaff">0</b>Active staff</div>
+                <div class="stat"><b id="stPending">0</b>Pending applications</div>
+            </div>
+            <div class="tabs">
+                <button class="tab-btn active" data-view="students">Students</button>
+                <button class="tab-btn" data-view="staff">Staff</button>
+                <button class="tab-btn" data-view="applications">Applications</button>
+                <button class="tab-btn" data-view="exams">Examinations</button>
+                <button class="tab-btn" data-view="results">Enter Results</button>
+            </div>
+            <div class="toolbar" id="toolbar">
+                <input id="search" placeholder="Search by name or admission no...">
+                <button class="form-btn" id="addBtn" style="margin-top:0;">+ Add</button>
+            </div>
+            <div id="examTools" style="display:none;margin:18px 0;padding:18px;background:#fff;border-radius:10px;">
+<h3>Create examination</h3><form id="examForm" class="fgrid">
+<input name="title" placeholder="Exam title" required><input name="session" placeholder="Academic session e.g. 2026/2027" required>
+<select name="term" required><option value="">Select term</option><option>First Term</option><option>Second Term</option><option>Third Term</option></select>
+<select name="class_id" id="examClass" required></select>
+<label>CA maximum <input name="ca_max" type="number" min="1" value="40" required></label>
+<label>Exam maximum <input name="exam_max" type="number" min="1" value="60" required></label>
+<button class="form-btn" type="submit">Create examination</button></form><div id="examMsg" class="msg"></div></div>
+<div id="resultTools" style="display:none;margin:18px 0;padding:18px;background:#fff;border-radius:10px;">
+<h3>Record student result</h3><form id="resultForm" class="fgrid">
+<select name="exam_id" id="resultExam" required><option value="">Select examination</option></select>
+<select name="student_id" id="resultStudent" required><option value="">Select student</option></select>
+<label>CA score <input name="ca_score" type="number" min="0" step="0.5" required></label>
+<label>Exam score <input name="exam_score" type="number" min="0" step="0.5" required></label>
+<button class="form-btn" type="submit">Save result</button></form><div id="resultMsg" class="msg"></div>
+<button class="small-btn" id="printResults" type="button">Print displayed results</button></div>
+<div class="table-wrap" id="listArea"></div>
+        </div>
+    </section>
+
+    <div class="modal" id="editModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeEdit">&times;</span>
+            <h3 id="editTitle" style="margin-bottom:15px;"></h3>
+            <form id="editForm"><div class="fgrid" id="editFields"></div>
+                <button class="form-btn" type="submit">Save</button><div class="msg" id="editMsg"></div></form>
+        </div>
+    </div>
+    <div class="modal" id="viewModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeView">&times;</span>
+            <h3 style="margin-bottom:15px;">Application details</h3>
+            <div id="viewBody"></div>
+        </div>
+    </div>
+    <script src="js/admin.js"></script>
+</body>
+</html>
